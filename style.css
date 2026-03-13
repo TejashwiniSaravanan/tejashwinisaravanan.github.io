@@ -118,3 +118,33 @@ body {
     display: flex;
     gap: 15px;
 }
+
+.title-underline { width: 40px; height: 5px; background: white; border-radius: 10px; margin-bottom: 25px; }
+
+.tag {
+    font-size: 0.7rem;
+    color: #38bdf8;
+    background: #1e293b;
+    padding: 2px 8px;
+    border-radius: 5px;
+    border: 1px solid #38bdf8;
+    text-transform: uppercase;
+}
+
+.project-box {
+    flex-direction: column; /* Stacks tag, title, and link vertically */
+    padding: 25px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
