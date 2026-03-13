@@ -93,3 +93,46 @@ h2 {
     text-decoration: none;
     font-weight: bold;
 }
+/* Navigation Bar */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+}
+.navbar a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+}
+.navbar a:hover, .active {
+    color: var(--accent);
+}
+
+/* About Page Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.profile-pic {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 0.9rem;
+    margin: 10px 0;
+    color: #94a3b8;
+}
+
+.external-links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
