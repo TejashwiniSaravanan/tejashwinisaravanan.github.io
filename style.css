@@ -119,32 +119,44 @@ body {
     gap: 15px;
 }
 
-.title-underline { width: 40px; height: 5px; background: white; border-radius: 10px; margin-bottom: 25px; }
-
-.tag {
-    font-size: 0.7rem;
-    color: #38bdf8;
-    background: #1e293b;
-    padding: 2px 8px;
-    border-radius: 5px;
-    border: 1px solid #38bdf8;
-    text-transform: uppercase;
+.project-box {
+    flex-direction: column;
+    padding: 30px;
+    border: 1px solid var(--border-gray);
+    transition: 0.3s ease;
 }
 
-.project-box {
-    flex-direction: column; /* Stacks tag, title, and link vertically */
-    padding: 25px;
+.project-box:hover {
+    border-color: #38bdf8;
+    transform: translateY(-5px);
+}
+
+.tag {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.project-footer {
+    margin-top: auto;
+    display: flex;
+    gap: 20px;
+    padding-top: 15px;
 }
 
 .project-link {
-    display: inline-block;
-    margin-top: 15px;
-    color: white;
+    color: var(--text-dim);
     text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    transition: 0.3s;
 }
 
 .project-link:hover {
-    text-decoration: underline;
+    color: white;
 }
