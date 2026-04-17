@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tejashwini Saravanan | Healthcare Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #060a10;
+  --bg2: #0a1018;
+  --bg3: #0e1620;
+  --card: #0c1520;
+  --border: rgba(0,210,255,0.1);
+  --accent: #00d2ff;
+  --accent2: #8b5cf6;
+  --accent3: #00ffb3;
+  --accent4: #ff6b6b;
+  --text: #ddeeff;
+  --text2: #7a9ab8;
+  --text3: #3d5870;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* GRID BG */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,210,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,210,255,0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 5rem;
+  background: rgba(6,10,16,0.9);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+}
+
+.nav-logo span { color: var(--text); }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.25s;
+  font-family: var(--font-mono);
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.nav-cta {
+  border: 1px solid var(--accent) !important;
+  color: var(--accent) !important;
+  padding: 0.45rem 1.1rem;
+  border-radius: 4px;
+  transition: all 0.25s !important;
+}
+.nav-cta:hover { background: var(--accent) !important; color: var(--bg) !important; }
+
+/* SECTIONS BASE */
+section { position: relative; z-index: 1; }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 8rem 5rem 4rem;
+  gap: 4rem;
+  overflow: hidden;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb1 {
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(0,210,255,0.1) 0%, transparent 70%);
+  top: -200px; right: -200px;
+  animation: floatY 10s ease-in-out infinite;
+}
+
+.orb2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%);
+  bottom: -100px; left: 0;
+  animation: floatY 13s ease-in-out infinite reverse;
+}
+
+@keyframes floatY {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+}
+
+.hero-left { position: relative; z-index: 2; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,210,255,0.07);
+  border: 1px solid rgba(0,210,255,0.18);
+  border-radius: 100px;
+  padding: 0.38rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  margin-bottom: 1.8rem;
+  animation: fadeUp 0.5s ease both;
+}
+
+.badge-dot {
+  width: 6px; height: 6px;
+  background: var(--accent3);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -2px;
+  margin-bottom: 0.8rem;
+  animation: fadeUp 0.5s 0.1s ease both;
+}
+
+.hero-name .line2 {
+  background: linear-gradient(120deg, var(--accent) 0%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-roles {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text2);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.5s 0.2s ease both;
+}
+
+.hero-roles .role-highlight { color: var(--accent3); }
+
+.hero-desc {
+  font-size: 1rem;
+  color: var(--text2);
+  max-width: 520px;
+  line-height: 1.85;
+  margin-bottom: 2.2rem;
+  animation: fadeUp 0.5s 0.3s ease both;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.5s 0.4s ease both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 4px 30px rgba(0,210,255,0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(0,210,255,0.35);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0,210,255,0.05);
+}
+
+.hero-meta {
+  display: flex;
+  gap: 2rem;
+  animation: fadeUp 0.5s 0.5s ease both;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text3);
+}
+
+.meta-item svg { color: var(--accent); }
+
+/* HERO RIGHT — Stats Panel */
+.hero-right {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  transition: transform 0.3s, border-color 0.3s;
+  animation: fadeUp 0.5s ease both;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.3s; }
+.stat-card:nth-child(2) { animation-delay: 0.4s; }
+.stat-card:nth-child(3) { animation-delay: 0.5s; }
+.stat-card:nth-child(4) { animation-delay: 0.6s; }
+
+.stat-card:hover {
+  transform: translateX(-6px);
+  border-color: var(--accent);
+}
+
+.stat-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.stat-icon.cyan { background: rgba(0,210,255,0.1); }
+.stat-icon.purple { background: rgba(139,92,246,0.1); }
+.stat-icon.green { background: rgba(0,255,179,0.1); }
+.stat-icon.red { background: rgba(255,107,107,0.1); }
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text2);
+  margin-top: 0.2rem;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── SECTION COMMON ─── */
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.8rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.section-sub {
+  color: var(--text2);
+  font-size: 1rem;
+  max-width: 540px;
+  margin-bottom: 3rem;
+}
+
+/* ─── ABOUT ─── */
+#about { background: var(--bg2); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-text p {
+  color: var(--text2);
+  font-size: 1rem;
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
+}
+
+.about-text p strong { color: var(--accent); font-weight: 500; }
+
+.about-highlight {
+  background: rgba(0,210,255,0.05);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.cert-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color 0.3s;
+}
+
+.cert-card:hover { border-color: var(--accent2); }
+
+.cert-icon {
+  width: 48px; height: 48px;
+  background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(0,210,255,0.1));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.cert-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.cert-issuer {
+  font-size: 0.8rem;
+  color: var(--text2);
+  font-family: var(--font-mono);
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quick-fact {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.quick-fact:hover {
+  border-color: rgba(0,210,255,0.3);
+  transform: translateX(4px);
+}
+
+.qf-icon { font-size: 1.4rem; }
+
+.qf-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.2rem;
+}
+
+.qf-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* ─── EXPERIENCE ─── */
+#experience { background: var(--bg); }
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-left: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.42rem;
+  top: 0.4rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  background: var(--bg);
+  transition: background 0.3s;
+}
+
+.timeline-item:hover .timeline-dot { background: var(--accent); }
+
+.timeline-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.8rem 2rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.timeline-card:hover {
+  border-color: rgba(0,210,255,0.25);
+  transform: translateX(4px);
+}
+
+.tl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tl-role {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.tl-period {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  background: rgba(0,210,255,0.07);
+  border: 1px solid rgba(0,210,255,0.15);
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+}
+
+.tl-company {
+  font-size: 0.9rem;
+  color: var(--accent2);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.tl-location {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text3);
+  margin-bottom: 1rem;
+}
+
+.tl-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tl-bullets li {
+  color: var(--text2);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.tl-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.7rem;
+  top: 0.1em;
+}
+
+.tl-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tl-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text3);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.tl-tag:hover { border-color: rgba(0,210,255,0.3); color: var(--accent); }
+
+/* ─── PROJECTS ─── */
+#projects { background: var(--bg2); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover {
+  border-color: rgba(0,210,255,0.25);
+  transform: translateY(-4px);
+}
+
+.project-card:hover::before { opacity: 1; }
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.project-icon {
+  width: 46px; height: 46px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.project-links { display: flex; gap: 0.5rem; }
+
+.project-link {
+  width: 32px; height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: all 0.25s;
+}
+
+.project-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(0,210,255,0.05);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.project-desc {
+  color: var(--text2);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+  flex: 1;
+}
+
+.project-impact {
+  background: rgba(0,255,179,0.05);
+  border: 1px solid rgba(0,255,179,0.15);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 0.82rem;
+  color: var(--accent3);
+  margin-bottom: 1.2rem;
+  font-family: var(--font-mono);
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  background: rgba(0,210,255,0.07);
+  border: 1px solid rgba(0,210,255,0.15);
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+}
+
+/* ─── SKILLS ─── */
+#skills { background: var(--bg); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-group {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.8rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.skill-group:hover {
+  border-color: rgba(0,210,255,0.2);
+  transform: translateY(-3px);
+}
+
+.skill-group-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+.skill-group-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-name {
+  font-size: 0.85rem;
+  color: var(--text2);
+}
+
+.skill-bar {
+  width: 100px;
+  height: 4px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  animation: barFill 1.5s ease both;
+}
+
+@keyframes barFill {
+  from { width: 0%; }
+}
+
+/* ─── EDUCATION ─── */
+#education { background: var(--bg2); }
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.edu-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: border-color 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.edu-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 80px; height: 80px;
+  background: radial-gradient(circle, rgba(0,210,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.edu-card:hover {
+  border-color: rgba(0,210,255,0.25);
+  transform: translateY(-3px);
+}
+
+.edu-degree {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.edu-school {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+}
+
+.edu-period {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text3);
+  margin-bottom: 0.3rem;
+}
+
+.edu-location {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text3);
+  margin-bottom: 1rem;
+}
+
+.edu-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+/* ─── CONTACT ─── */
+#contact {
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+#contact::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,210,255,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-inner {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.contact-headline .grad {
+  background: linear-gradient(120deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-sub {
+  color: var(--text2);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.4rem 1rem;
+  text-decoration: none;
+  transition: border-color 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.cc-icon { font-size: 1.5rem; }
+
+.cc-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.cc-value {
+  font-size: 0.82rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.contact-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 30px rgba(0,210,255,0.25);
+}
+
+.contact-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 50px rgba(0,210,255,0.4);
+}
+
+/* FOOTER */
+footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text3);
+  position: relative;
+  z-index: 1;
+}
+
+footer span { color: var(--accent); }
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  #hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+  .hero-right { display: none; }
+  .section-inner { padding: 4rem 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .contact-cards { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">T<span>S</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Open to Healthcare &amp; Data Roles · Seattle, US
+    </div>
+    <h1 class="hero-name">
+      Tejashwini<br>
+      <span class="line2">Saravanan</span>
+    </h1>
+    <div class="hero-roles">
+      Healthcare Data Analyst &nbsp;·&nbsp; <span class="role-highlight">3+ Years Experience</span>
+    </div>
+    <p class="hero-desc">
+      I transform complex healthcare and operational data into decisions that matter. 
+      From clinical trial optimization to HIPAA-compliant analytics platforms — 
+      I bridge the gap between data and real-world health outcomes.
+    </p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        View My Work
+      </a>
+      <a href="mailto:post2tejashwini@gmail.com" class="btn-secondary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        Get In Touch
+      </a>
+    </div>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Seattle, WA · Open to Relocation
+      </div>
+      <div class="meta-item">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Available Now
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="stat-icon cyan">📊</div>
+      <div>
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Years of Data Analytics Experience</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon purple">🏥</div>
+      <div>
+        <div class="stat-num">100K+</div>
+        <div class="stat-label">Patient Records Analyzed</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon green">📍</div>
+      <div>
+        <div class="stat-num">1,300+</div>
+        <div class="stat-label">Healthcare Service Locations Supported</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon red">🎓</div>
+      <div>
+        <div class="stat-num">M.S.</div>
+        <div class="stat-label">Data Analytics for Business · SPU 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Who I Am</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I'm a <strong>Healthcare Data Analyst</strong> with over 3 years of hands-on experience turning messy, complex data into clear insights that drive better patient outcomes and operational decisions.
+        </p>
+        <p>
+          My journey started in India where I analyzed healthcare data across <strong>1,300+ service locations</strong> for Bharath Home Medicare. Since then, I've built analytics pipelines, HIPAA-compliant dashboards, and ML-powered tools — including a clinical trial patient selection model that applies AI to one of healthcare's biggest challenges.
+        </p>
+        <p>
+          I hold an <strong>M.S. in Data Analytics for Business</strong> from Seattle Pacific University and I've volunteered as a Healthcare Analyst with the American Red Cross during disaster response — because data has real stakes in healthcare.
+        </p>
+        <div class="about-highlight">
+          "I don't just analyze data — I translate it into decisions that improve lives."
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">📋</div>
+          <div>
+            <div class="cert-title">Microsoft Office Specialist — Excel Expert</div>
+            <div class="cert-issuer">Microsoft Certified · MOS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-right reveal">
+        <div class="quick-fact">
+          <div class="qf-icon">🎓</div>
+          <div>
+            <div class="qf-label">Degree</div>
+            <div class="qf-value">M.S. Data Analytics for Business</div>
+          </div>
+        </div>
+        <div class="quick-fact">
+          <div class="qf-icon">🏥</div>
+          <div>
+            <div class="qf-label">Domain</div>
+            <div class="qf-value">Healthcare &amp; Clinical Data</div>
+          </div>
+        </div>
+        <div class="quick-fact">
+          <div class="qf-icon">🛠</div>
+          <div>
+            <div class="qf-label">Core Stack</div>
+            <div class="qf-value">Python · SQL · Power BI · R · Databricks</div>
+          </div>
+        </div>
+        <div class="quick-fact">
+          <div class="qf-icon">📍</div>
+          <div>
+            <div class="qf-label">Location</div>
+            <div class="qf-value">Seattle, WA · Open to Relocation</div>
+          </div>
+        </div>
+        <div class="quick-fact">
+          <div class="qf-icon">✉️</div>
+          <div>
+            <div class="qf-label">Email</div>
+            <div class="qf-value">post2tejashwini@gmail.com</div>
+          </div>
+        </div>
+        <div class="quick-fact">
+          <div class="qf-icon">🚀</div>
+          <div>
+            <div class="qf-label">Status</div>
+            <div class="qf-value">Actively Job Hunting · Available Now</div>
+          </div>
+        </div>
+        <div class="quick-fact">
+          <div class="qf-icon">🌟</div>
+          <div>
+            <div class="qf-label">Volunteer</div>
+            <div class="qf-value">Healthcare Analyst · American Red Cross</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career History</div>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">3+ years across healthcare analytics, disaster response, and operations data.</p>
+
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-role">Data Analyst</div>
+            <div class="tl-period">Nov 2025 – Present</div>
+          </div>
+          <div class="tl-company">Community Dreams Foundation</div>
+          <div class="tl-location">📍 Seattle, WA · Remote · Full-time</div>
+          <ul class="tl-bullets">
+            <li>Building ETL pipelines and data workflows for a HIPAA-compliant healthcare analytics platform in collaboration with engineering teams.</li>
+            <li>Developing Power BI dashboards to visualize health indicators and operational metrics for leadership decision-making.</li>
+            <li>Processing and analyzing large healthcare datasets using PySpark and Databricks to uncover actionable trends for business planning.</li>
+            <li>Collaborating with cross-functional stakeholders to translate healthcare and operational data into data-driven strategies.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">PySpark</span><span class="tl-tag">Databricks</span><span class="tl-tag">Power BI</span><span class="tl-tag">ETL</span><span class="tl-tag">HIPAA</span><span class="tl-tag">Azure</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-role">Healthcare Analyst – Disaster Response</div>
+            <div class="tl-period">Aug 2025 – Oct 2025</div>
+          </div>
+          <div class="tl-company">American Red Cross Northwest Region</div>
+          <div class="tl-location">📍 Everett, WA · Hybrid · Volunteer</div>
+          <ul class="tl-bullets">
+            <li>Analyzed healthcare and operational data to support disaster response coordination across the Northwest region.</li>
+            <li>Produced rapid-turnaround reports and data visualizations to guide resource allocation during emergency response operations.</li>
+            <li>Demonstrated ability to work under pressure in high-stakes, time-sensitive healthcare environments.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">Healthcare Analytics</span><span class="tl-tag">Emergency Data</span><span class="tl-tag">Reporting</span><span class="tl-tag">Tableau</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-role">Graduate Analytics Assistant</div>
+            <div class="tl-period">Oct 2023 – Aug 2025</div>
+          </div>
+          <div class="tl-company">Seattle Pacific University · Operated by Sodexo</div>
+          <div class="tl-location">📍 Seattle, WA · On-site</div>
+          <ul class="tl-bullets">
+            <li>Developed Power BI dashboards visualizing sales trends, peak-hour demand, and product performance for operations leadership.</li>
+            <li>Analyzed daily sales and inventory data using SQL and Excel to identify service inefficiencies and improve staffing planning.</li>
+            <li>Gathered reporting requirements from Sodexo leadership and translated business needs into analytics dashboards.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">Power BI</span><span class="tl-tag">SQL</span><span class="tl-tag">Excel</span><span class="tl-tag">Stakeholder Mgmt</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div class="tl-role">Healthcare Data Analyst</div>
+            <div class="tl-period">May 2022 – Aug 2023</div>
+          </div>
+          <div class="tl-company">Bharath Home Medicare Pvt Ltd</div>
+          <div class="tl-location">📍 Chennai, India · On-site · Full-time</div>
+          <ul class="tl-bullets">
+            <li>Analyzed healthcare service data for <strong style="color:var(--accent)">100,000+ patients</strong> to identify operational trends and support strategic decision-making.</li>
+            <li>Collaborated with healthcare stakeholders across a network of <strong style="color:var(--accent)">1,300+ service locations</strong> to streamline operations.</li>
+            <li>Automated reporting for <strong style="color:var(--accent)">5,000+ healthcare providers</strong>, dramatically improving reporting efficiency and data accessibility.</li>
+            <li>Built Power BI and Tableau dashboards; used Python for predictive modeling and patient-flow optimization.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">Python</span><span class="tl-tag">Power BI</span><span class="tl-tag">Tableau</span><span class="tl-tag">Healthcare KPIs</span><span class="tl-tag">Predictive Modeling</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Featured Projects</h2>
+    <p class="section-sub">End-to-end data projects spanning clinical AI, big data pipelines, and healthcare analytics.</p>
+
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-icon" style="background:rgba(0,210,255,0.1)">🧬</div>
+          <div class="project-links">
+            <a href="https://github.com/TejashwiniSaravanan/Clinical-Trial-Patient-Selection-Optimization" target="_blank" class="project-link" title="GitHub">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-title">Clinical Trial Patient Selection Optimization</div>
+        <div class="project-desc">
+          Built an ML-powered system to optimize patient selection for clinical trials — addressing one of pharma's most expensive bottlenecks. Applied machine learning to eligibility criteria matching and patient profiling to improve trial enrollment quality.
+        </div>
+        <div class="project-impact">⚡ Impact: Reduces patient recruitment costs and improves trial success rates through intelligent eligibility matching</div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Machine Learning</span>
+          <span class="tech-tag">Clinical Data</span>
+          <span class="tech-tag">EHR Analysis</span>
+          <span class="tech-tag">Optimization</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-icon" style="background:rgba(139,92,246,0.1)">🎵</div>
+          <div class="project-links">
+            <a href="https://github.com/TejashwiniSaravanan" target="_blank" class="project-link" title="GitHub">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-title">Spotify Big Data Analysis Pipeline</div>
+        <div class="project-desc">
+          Engineered a scalable PySpark-based big data pipeline in Databricks to process and analyze millions of Spotify streaming records. Leveraged distributed computing and SQL to extract listening patterns, user behavior trends, and content performance insights.
+        </div>
+        <div class="project-impact">⚡ Impact: Demonstrates enterprise-grade big data engineering skills directly applicable to large healthcare datasets</div>
+        <div class="project-tech">
+          <span class="tech-tag">PySpark</span>
+          <span class="tech-tag">Databricks</span>
+          <span class="tech-tag">SQL</span>
+          <span class="tech-tag">AWS S3</span>
+          <span class="tech-tag">Big Data</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-icon" style="background:rgba(0,255,179,0.1)">🏥</div>
+          <div class="project-links"></div>
+        </div>
+        <div class="project-title">HIPAA-Compliant Healthcare Analytics Platform</div>
+        <div class="project-desc">
+          Contributing to an end-to-end HIPAA-compliant healthcare analytics platform at Community Dreams Foundation — building ETL pipelines, PySpark data models, and Power BI dashboards that surface health indicators and operational KPIs for organizational leadership.
+        </div>
+        <div class="project-impact">⚡ Impact: Real-world production healthcare analytics serving leadership decision-making</div>
+        <div class="project-tech">
+          <span class="tech-tag">Power BI</span>
+          <span class="tech-tag">PySpark</span>
+          <span class="tech-tag">Databricks</span>
+          <span class="tech-tag">ETL</span>
+          <span class="tech-tag">HIPAA</span>
+          <span class="tech-tag">Azure Blob</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-icon" style="background:rgba(255,107,107,0.1)">🚨</div>
+          <div class="project-links"></div>
+        </div>
+        <div class="project-title">Disaster Response Healthcare Data Analysis</div>
+        <div class="project-desc">
+          As a volunteer Healthcare Analyst with the American Red Cross, analyzed emergency healthcare data under time-sensitive, high-stakes conditions to support resource allocation and response coordination across the Northwest region.
+        </div>
+        <div class="project-impact">⚡ Impact: Real-time data analysis supporting life-critical disaster response decisions</div>
+        <div class="project-tech">
+          <span class="tech-tag">Tableau</span>
+          <span class="tech-tag">Healthcare Data</span>
+          <span class="tech-tag">Emergency Analytics</span>
+          <span class="tech-tag">Rapid Reporting</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Technical Arsenal</div>
+    <h2 class="section-title">Skills</h2>
+    <p class="section-sub">A full-stack analytics skill set built for healthcare and business environments.</p>
+
+    <div class="skills-grid">
+
+      <div class="skill-group reveal">
+        <div class="skill-group-icon">💻</div>
+        <div class="skill-group-title">Programming & Data</div>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-name">Python (Pandas, NumPy)</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">R (Statistical Analysis)</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">PySpark</span><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-icon">📊</div>
+        <div class="skill-group-title">Visualization & BI</div>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Tableau</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Excel (MOS Certified)</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Dashboard Development</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-icon">🤖</div>
+        <div class="skill-group-title">Machine Learning & AI</div>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-name">Predictive Modeling</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Classification / Clustering</span><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Statistical Analysis</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">ETL & Data Pipelines</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-icon">☁️</div>
+        <div class="skill-group-title">Cloud & Tools</div>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-name">Databricks</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">AWS S3</span><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Azure Blob Storage</span><div class="skill-bar"><div class="skill-fill" style="width:73%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">GitHub</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-icon">🏥</div>
+        <div class="skill-group-title">Healthcare Domain</div>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-name">HIPAA Compliance</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Clinical Data Analysis</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Healthcare KPI Reporting</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Patient Flow Analysis</span><div class="skill-bar"><div class="skill-fill" style="width:83%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group reveal">
+        <div class="skill-group-icon">🤝</div>
+        <div class="skill-group-title">Business Analysis</div>
+        <div class="skill-list">
+          <div class="skill-item"><span class="skill-name">Requirements Gathering</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Agile / Scrum</span><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Stakeholder Comms</span><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Gap Analysis</span><div class="skill-bar"><div class="skill-fill" style="width:86%"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree">Master of Science — Data Analytics for Business</div>
+        <div class="edu-school">Seattle Pacific University</div>
+        <div class="edu-period">Sep 2023 – Aug 2025</div>
+        <div class="edu-location">📍 Seattle, WA</div>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="edu-icon">🏛</div>
+        <div class="edu-degree">Bachelor of Science — Interior Design</div>
+        <div class="edu-school">SRM Institute of Science and Technology</div>
+        <div class="edu-period">June 2018 – May 2022</div>
+        <div class="edu-location">📍 Chennai, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div class="section-label" style="justify-content:center">Let's Connect</div>
+      <h2 class="contact-headline">
+        Ready to Turn Data<br>Into <span class="grad">Better Health Outcomes?</span>
+      </h2>
+      <p class="contact-sub">
+        I'm actively looking for healthcare data and analytics roles. If you're building something that matters, I'd love to talk.
+      </p>
+
+      <div class="contact-cards">
+        <a href="mailto:post2tejashwini@gmail.com" class="contact-card reveal">
+          <div class="cc-icon">✉️</div>
+          <div class="cc-label">Email</div>
+          <div class="cc-value">post2tejashwini@gmail.com</div>
+        </a>
+        <a href="https://www.linkedin.com/in/tejashwinisaravanan/" target="_blank" class="contact-card reveal">
+          <div class="cc-icon">💼</div>
+          <div class="cc-label">LinkedIn</div>
+          <div class="cc-value">tejashwinisaravanan</div>
+        </a>
+        <a href="https://github.com/TejashwiniSaravanan" target="_blank" class="contact-card reveal">
+          <div class="cc-icon">🐙</div>
+          <div class="cc-label">GitHub</div>
+          <div class="cc-value">TejashwiniSaravanan</div>
+        </a>
+      </div>
+
+      <a href="mailto:post2tejashwini@gmail.com" class="contact-cta reveal">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        Let's Work Together
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Designed & built with care · <span>Tejashwini Saravanan</span> · Seattle, WA · 2025
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Typed effect
+const roles = ['Healthcare Data Analyst', 'Clinical Data Analyst', 'Business Intelligence Analyst', 'Data Scientist'];
+let ri = 0, ci = 0, deleting = false;
+const el = document.createElement('span');
+el.className = 'role-highlight';
+
+const rolesEl = document.querySelector('.hero-roles');
+if (rolesEl) {
+  rolesEl.innerHTML = '';
+  rolesEl.appendChild(el);
+
+  setInterval(() => {
+    const current = roles[ri];
+    if (!deleting) {
+      el.textContent = current.slice(0, ci + 1);
+      ci++;
+      if (ci === current.length) {
+        deleting = true;
+        setTimeout(() => {}, 1500);
+      }
+    } else {
+      el.textContent = current.slice(0, ci - 1);
+      ci--;
+      if (ci === 0) {
+        deleting = false;
+        ri = (ri + 1) % roles.length;
+      }
+    }
+  }, deleting ? 60 : 100);
+}
+</script>
+
+</body>
+</html>
